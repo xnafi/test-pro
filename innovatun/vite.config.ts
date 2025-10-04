@@ -27,13 +27,14 @@ export default defineConfig({
             "@radix-ui/react-accordion",
             "@radix-ui/react-dialog",
             "@radix-ui/react-popover",
-            // add other Radix packages you use heavily
+            "@radix-ui/react-select",
+            // add more Radix packages here
           ],
           stripe: ["@stripe/react-stripe-js", "@stripe/stripe-js"],
         },
       },
     },
-    outDir: "./build", // or './dist' if you prefer
-    chunkSizeWarningLimit: 1000, // optional, increases the warning limit to 1 MB
+    chunkSizeWarningLimit: 2000, // optional: increase limit to 2 MB if you want
+    outDir: "dist", // or "build" if using vercel.json
   },
 });
