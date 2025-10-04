@@ -18,12 +18,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-    build: {
-        rollupOptions: {
-            output: {
-                format: 'es',
-            },
+      build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"], // example splitting
         },
-        outDir: './build',
+      },
     },
+    chunkSizeWarningLimit: 1000, // optional: silence warnings
+  },
+
 });
