@@ -18,12 +18,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-    build: {
-        rollupOptions: {
-            output: {
-                format: 'es',
-            },
-        },
-        outDir: './build',
+  build: {
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        format: "es",
+      },
     },
+    outDir: "./build",
+  },
 });
