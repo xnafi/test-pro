@@ -22,16 +22,18 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: [
-            "react",
-            "react-dom",
-            "firebase",
-            "tailwindcss",
+          react: ["react", "react-dom", "react-router-dom"],
+          radix: [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-popover",
+            // add other Radix packages you use heavily
           ],
+          stripe: ["@stripe/react-stripe-js", "@stripe/stripe-js"],
         },
-        format: "es",
       },
     },
-    outDir: "./dist",
+    outDir: "./dist", // or './dist' if you prefer
+    chunkSizeWarningLimit: 1000, // optional, increases the warning limit to 1 MB
   },
 });
