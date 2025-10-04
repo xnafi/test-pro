@@ -33,7 +33,7 @@ export default defineConfig({
         },
       },
     },
-    outDir: "./dist", // or './dist' if you prefer
+    outDir: "./build", // or './dist' if you prefer
     chunkSizeWarningLimit: 1000, // optional, increases the warning limit to 1 MB
   },
 });
