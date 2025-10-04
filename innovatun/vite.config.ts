@@ -1,9 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
-import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-//uncommand bellow line before  git push
-// import proxyOptions from "./proxyOptions";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,7 +9,7 @@ export default defineConfig({
   server: {
     port: 8080,
     host: "0.0.0.0",
-    // proxy: proxyOptions,
+    // proxy: proxyOptions, // uncomment if needed
   },
   resolve: {
     alias: {
@@ -19,22 +17,45 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: "dist", // Vercel default output folder
     rollupOptions: {
       output: {
         manualChunks: {
           react: ["react", "react-dom", "react-router-dom"],
           radix: [
             "@radix-ui/react-accordion",
+            "@radix-ui/react-alert-dialog",
+            "@radix-ui/react-aspect-ratio",
+            "@radix-ui/react-avatar",
+            "@radix-ui/react-checkbox",
+            "@radix-ui/react-collapsible",
+            "@radix-ui/react-context-menu",
             "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-hover-card",
+            "@radix-ui/react-label",
+            "@radix-ui/react-menubar",
+            "@radix-ui/react-navigation-menu",
             "@radix-ui/react-popover",
+            "@radix-ui/react-progress",
+            "@radix-ui/react-radio-group",
+            "@radix-ui/react-scroll-area",
             "@radix-ui/react-select",
-            // add more Radix packages here
+            "@radix-ui/react-separator",
+            "@radix-ui/react-slider",
+            "@radix-ui/react-slot",
+            "@radix-ui/react-switch",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-toast",
+            "@radix-ui/react-toggle",
+            "@radix-ui/react-toggle-group",
+            "@radix-ui/react-tooltip",
           ],
           stripe: ["@stripe/react-stripe-js", "@stripe/stripe-js"],
+          firebase: ["firebase"],
         },
       },
     },
-    chunkSizeWarningLimit: 2000, // optional: increase limit to 2 MB if you want
-    outDir: "dist", // or "build" if using vercel.json
+    chunkSizeWarningLimit: 2000, // 2 MB warning limit
   },
 });
