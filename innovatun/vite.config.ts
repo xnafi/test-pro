@@ -26,7 +26,6 @@ export default defineConfig({
             "react",
             "react-dom",
             "firebase",
-            "framer-motion",
             "tailwindcss",
           ],
         },
