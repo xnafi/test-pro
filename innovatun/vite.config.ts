@@ -18,15 +18,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-      build: {
+  build: {
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ["react", "react-dom"], // example splitting
+          react: ["react", "react-dom"],
+          vendor: ["framer-motion", "lodash"], // add heavy libs here
         },
       },
     },
-    chunkSizeWarningLimit: 1000, // optional: silence warnings
+    chunkSizeWarningLimit: 2000, // optional: silence warnings
   },
-
 });
